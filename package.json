@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "testcafe chrome"
+    "test": "testcafe chrome -r spec:spec.txt,list:list.txt,minimal:minimal.txt,xunit:report.xml"
   },
   "devDependencies": {
     "testcafe": "^3.5.0"
