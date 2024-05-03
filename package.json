@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "test": "testcafe chrome -r spec:spec.txt,list:list.txt,minimal:minimal.txt,xunit:report.xml -c2"
+    "test": "testcafe chrome",
+    "test-reporters": "testcafe chrome -r spec:spec.txt,list:list.txt,minimal:minimal.txt,xunit:report.xml -c2",
+    "test-debug": "testcafe chrome -r spec --debug-mode"
   },
   "devDependencies": {
     "testcafe": "^3.5.0"

@@ -1,17 +1,16 @@
-import {Selector} from "testcafe";
+import shouldSeeLoginSuccessful from "../step/expectLoginSuccessful";
+import enterSignupInfoAndSubmit from "../step/enterSignupInfoAndSubmit";
+import shouldSeeLoginPage from "../step/shouldSeeLoginPage";
 
 fixture`exploring the signup`
     .page`http://localhost:5173/signup`
     .beforeEach(async t => {
-        t.ctx.someKey = 123;
+        t.ctx.userName='umer';
     });
 
 // Tests
-test('Text typing basics', async t => {
-    //console.log({key: t.ctx.someKey})
-    await t.report("go to account");
-    await t.typeText("input#names", 'Peter') // Type name
-    await t.report("enter stuff");
-    await t.expect(Selector("input#name").value).eql('Peter'); // Check result
-    await t.report("done");
+test('sign up sucessful', async t => {
+    await enterSignupInfoAndSubmit(t);
+    await shouldSeeLoginPage(t);
+    await shouldSeeLoginSuccessful(t);
 });
